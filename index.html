@@ -12,12 +12,11 @@
       background: linear-gradient(270deg, #cf0f79, #0dc1ce, #667eea);
       background-size: 600% 600%;
       animation: gradient 5s ease infinite;
-      position: relative;
     }
     @keyframes gradient {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
     .container {
       width: 100vw;
@@ -32,7 +31,6 @@
       padding: 12px 24px;
       background: #007bff;
       color: #fff;
-      text-decoration: none;
       border: none;
       border-radius: 6px;
       font-size: 16px;
@@ -40,14 +38,11 @@
       transition: opacity 0.4s ease-in-out;
       z-index: 10;
     }
-    .button-link:hover {
-      background: #0056b3;
-    }
     .button-link.hidden {
       opacity: 0;
       pointer-events: none;
     }
-    #image {
+    #video {
       width: 100vw;
       height: 100vh;
       object-fit: cover;
@@ -55,30 +50,38 @@
       transition: opacity 0.8s ease-in-out;
       display: block;
     }
-    #image.show {
+    #video.show {
       opacity: 1;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <button class="button-link" onclick="showImage()">! Truc trop cool !</button>
-    <img id="image" src="Minecraft Screenshot 2025.05.25 - 23.29.39.72.png" alt="Image">
+    <button class="button-link" onclick="showVideo()">! Truc trop cool !</button>
+
+    <video id="video" muted playsinline loop>
+      <source src="Wallpaper Liink Spike.mp4" type="video/mp4">
+      Ton navigateur ne supporte pas la vidéo.
+    </video>
   </div>
-  
+
   <script>
     function playSound() {
-      const audio = new Audio('amoug-us.mp3');
+      const audio = new Audio('heyliink.ogg');
       audio.volume = 0.5;
       audio.play().catch(err => console.log('Erreur audio:', err));
     }
     
-    function showImage() {
+    function showVideo() {
       playSound();
+
       const btn = document.querySelector('.button-link');
-      const img = document.getElementById('image');
+      const video = document.getElementById('video');
+
       btn.classList.add('hidden');
-      img.classList.add('show');
+      video.classList.add('show');
+
+      video.play().catch(err => console.log('Erreur vidéo:', err));
     }
   </script>
 </body>
